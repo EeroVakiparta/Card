@@ -17,7 +17,7 @@ public class CardService {
     private final CardDao cardDao;
 
     @Autowired
-    public CardService(@Qualifier("fakeDao") CardDao cardDao) {
+    public CardService(@Qualifier("postgres") CardDao cardDao) {
         this.cardDao = cardDao;
     }
 

@@ -26,7 +26,7 @@ public class CardController {
         cardService.addCard(card);
     }
 
-    @GetMapping
+    @GetMapping(path = "/")
     public List<Card> getAllCards() {
         return cardService.getAllCards();
     }

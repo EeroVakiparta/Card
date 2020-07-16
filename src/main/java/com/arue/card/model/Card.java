@@ -1,22 +1,21 @@
 package com.arue.card.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-public class Card {
+@Table(name = "card")
+public class Card implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
 
     @NotBlank
-    @Column
+    @Column(name = "name")
     private String name;
 
     public Card() {
