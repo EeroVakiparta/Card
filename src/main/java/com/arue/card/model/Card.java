@@ -2,6 +2,7 @@ package com.arue.card.model;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -18,10 +19,13 @@ public class Card implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long card_id;
 
+    //need to add value required=true to show @NotNull for example
+    @ApiModelProperty(value = "Name of the card, duh", required=true)
     @NotBlank
     @Column(name = "name")
     private String card_name;
 
+    @ApiModelProperty(value = "Image in binaryType byte[]")
     @Lob // Large Object
     @Type(type="org.hibernate.type.BinaryType") // Hibernate binary data helper
     private byte[] card_image;
